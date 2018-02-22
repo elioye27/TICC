@@ -96,4 +96,15 @@ $(document).ready(function() {
 	  $("#Message-table > tbody").append("<tr><td>" + name + "</td><td>" + email + "</td><td>" + phone + 
 	   "</td><td>" + message + "</td></tr>");
 	});
+
+	// Bible verse
+	
+	$.ajax({
+		url:'https://dailyverses.net/getdailyverse.ashx?language=niv&isdirect=1&url=' + window.location.hostname,
+		dataType: 'JSONP',
+		success:function(json){
+		$(".dailyVersesWrapper").prepend(json.html);
+		}
+	});
+
 });
